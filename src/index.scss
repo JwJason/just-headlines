@@ -7,26 +7,21 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
-// Set brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
-$pale-gold: #C0B283;
+// Set color palette
+$light-gray: #F9F9F9;
 $silk: #DCD0C0;
+$pale-gold: #C0B283;
+$beige: #C6BBAC;
+$dark-beige: #757763;
+$charcoal: #373737;
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
-$menu-item-active-background-color: #c6bbac;
+$link: $dark-beige;
+$menu-item-active-background-color: $beige;
 
 // Update some of Bulma's component variables
 $control-border-width: 2px;
-$input-background-color: $beige-lighter;
 $input-border-color: transparent;
 $input-shadow: none;
 
@@ -133,6 +128,15 @@ $input-shadow: none;
 	margin-top: 0px;
 }
 
+// == Navbar ==
+.navbar-start .navbar-item {
+	padding-left: 2em;
+}
+
+.navbar-link svg {
+	padding-right: 5px;
+}
+
 /**
  * =================
  * Custom Components
@@ -164,6 +168,7 @@ $input-shadow: none;
 // ==== News Feed ====
 .news-feed {
 	position: relative;
+	background-color: $light-gray;
 }
 
 .news-feed-articles {
@@ -176,7 +181,7 @@ $input-shadow: none;
 .weather {
 	display: flex;
 	align-items: center;
-	color: #757763;
+	color: $dark-beige;
 }
 
 .weather-info {

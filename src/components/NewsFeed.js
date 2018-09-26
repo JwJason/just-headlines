@@ -1,8 +1,9 @@
 import React from 'react';
-import md5 from 'js-md5';
 import Ionicon from 'react-ionicons';
-import NewsArticle from './NewsArticle';
+import md5 from 'js-md5';
 import CardScroller from './CardScroller';
+import NewsArticle from './NewsArticle';
+import {Styles} from './Definitions';
 
 export default class NewsFeed extends React.Component {
 	constructor(props) {
@@ -21,13 +22,13 @@ export default class NewsFeed extends React.Component {
 		return (
 			<div className="news-feed">
 				<div className="arrow left" onClick={() => this.cardScroller.scrollLeft()}>
-					<Ionicon icon="md-arrow-back" fontSize="35px" color="black"/>
+					<Ionicon icon="md-arrow-back" fontSize="35px" color={Styles.get('arrow-icon-color')}/>
 				</div>
 				<div className="news-feed-articles columns" id="news-feed-articles" ref={ref => this.cardScroller.containerRef = ref}>
 					{columns}
 				</div>
 				<div className="arrow right" onClick={() => this.cardScroller.scrollRight()}>
-					<Ionicon icon="md-arrow-forward" fontSize="35px" color="black"/>
+					<Ionicon icon="md-arrow-forward" fontSize="35px" color={Styles.get('arrow-icon-color')}/>
 				</div>
 			</div>
 		);

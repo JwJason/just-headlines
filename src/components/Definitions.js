@@ -18,9 +18,11 @@ export const Styles = new Map([
 	['menu-icon-fontsize', '24px'],
 	['menu-icon-color-normal', '#757763'],
 	['menu-icon-color-active', '#FFF'],
-	['menu-icon-color-hover', ''],
+	['menu-icon-color-hover', '#373737'],
 	['weather-icon-fontsize', '50px'],
-	['weather-icon-color', '#757763']
+	['weather-icon-color', '#757763'],
+	['arrow-icon-color', '#373737'],
+	['globe-icon-color', '#757763']
 ]);
 
 export const weatherIcon = (code) => {

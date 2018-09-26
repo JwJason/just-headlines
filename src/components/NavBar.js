@@ -1,6 +1,7 @@
 import React from 'react';
+import {Countries, Styles} from './Definitions';
+import Ionicon from 'react-ionicons';
 import Weather from './Weather';
-import {Countries} from './Definitions';
 
 export default class NavBar extends React.Component {
     setCountry(country) {
@@ -24,11 +25,9 @@ export default class NavBar extends React.Component {
             </a>
           </div>
           <div className="navbar-start">
-            <a className="navbar-item">
-              Home
-            </a>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">
+                <Ionicon icon="md-globe" fontSize="28px" color={Styles.get('globe-icon-color')}/>
                 {Countries.get(this.props.country)}
               </a>
               <div className="navbar-dropdown is-boxed">
