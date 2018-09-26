@@ -1,6 +1,6 @@
 import React from 'react';
 import Ionicon from 'react-ionicons';
-import NewsApi from './NewsApi';
+import {fetchLocation, fetchWeather as apiFetchWeather} from './NewsApi';
 import {Styles, weatherIcon} from './Definitions';
 
 export default class Weather extends React.Component {
@@ -19,28 +19,28 @@ export default class Weather extends React.Component {
 		//         1c. If previous step fails, use a default location
 		//     2. Fetch weather, using geolocation coordinates as input data
 		if (navigator.geolocation) {
-  			navigator.geolocation.getCurrentPosition((position) => this.geolocationSuccess(position.coords), (error) => this.geolocationFailed(error));
+  			navigator.geolocation.getCurrentPosition(
+  				position => this.geolocationSuccess(position.coords),
+  				error => this.geolocationFailed(error)
+  			);
 		} else {
   			this.geolocationFailed(null);
 		}
 	}
 
 	fetchWeather(coords) {
-		const api = new NewsApi();
-		api.fetchWeather(coords.latitude, coords.longitude)
+		apiFetchWeather(coords.latitude, coords.longitude)
 			.then(res => res.json())
-			.then(
-				result => {
-					let state = this.state;
-					state.data = result;
-					this.setState(state);
-				},
-				error => {
-					let state = this.state;
-					state.error = error;
-					this.setState(state);
-				}
-			);
+			.then(result => {
+				let state = this.state;
+				state.data = result;
+				this.setState(state);
+			})
+			.catch(error => {
+				let state = this.state;
+				state.error = error;
+				this.setState(state);
+			});
 	}
 
  	geolocationSuccess(coords) {
@@ -48,18 +48,15 @@ export default class Weather extends React.Component {
 	}
 
 	geolocationFailed(error) { // If browser-based geolocation fails, use IP-based geolocation (via ipstack) 
-		const api = new NewsApi();
-		api.fetchLocation()
+		fetchLocation()
 			.then(res => res.json())
-			.then(
-				result => {
-					this.fetchWeather({latitude: result.latitude, longitude: result.longitude});
-				},
-				error => { 
-					// If ipstack geolocation fails, fetch weather for default city (Chicago, IL)
-					this.fetchWeather({latitude: 41.8781, longitude: -87.6298});
-				}
-			);
+			.then(result => {
+				this.fetchWeather({latitude: result.latitude, longitude: result.longitude});
+			})
+			.catch(error => { 
+				// If ipstack geolocation fails, fetch weather for default city (Chicago, IL)
+				this.fetchWeather({latitude: 41.8781, longitude: -87.6298});
+			});
 	}
 
 	render() {

@@ -2,13 +2,12 @@ import React from 'react';
 import LoadFailed from './LoadFailed';
 import NavBar from './NavBar';
 import NewsFeed from './NewsFeed';
-import NewsApi from './NewsApi';
+import {fetchNews} from './NewsApi';
 import SideMenu from './SideMenu';
 
 export default class Layout extends React.Component {
 	constructor(props) {
 		super(props);
-		this.api = new NewsApi();
 		this.state = {
 			articles: [],
 			category: 'general',
@@ -19,7 +18,7 @@ export default class Layout extends React.Component {
 	}
 
 	loadNews() {
-		this.api.fetchNews(this.state.country, this.state.category)
+		fetchNews(this.state.country, this.state.category)
 			.then(res => res.json())
 			.then(result => {
 				let state = this.state;
