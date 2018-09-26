@@ -2,7 +2,7 @@
 
 ## About
 
-Just Headlines is a simple news & weather app built with React / Bulma. 
+Just Headlines is a simple news & weather app built with React and Bulma. 
 
 ## Installation
 
