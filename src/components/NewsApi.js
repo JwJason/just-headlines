@@ -9,7 +9,7 @@ export default class NewsApi {
 	}
 
 	async fetchNews(country, category) {
-		let apiKey = '';
+		let apiKey = process.env.REACT_APP_API_KEY_NEWS;
 
 		if (!country) country = '';
 		if (!category) category = '';
@@ -18,12 +18,12 @@ export default class NewsApi {
 	}
 
 	async fetchWeather(lat, lon) {
-		let apiKey = '';
+		let apiKey = process.env.REACT_APP_API_KEY_WEATHER;
 		return this._validate(await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${apiKey}&units=imperial`));
 	}
 
 	async fetchLocation() {
-		let apiKey = '';
+		let apiKey = process.env.REACT_APP_API_KEY_IPSTACK;
 		let response = this._validate(await fetch('https://api.ipify.org?format=json'));
 		return this._validate(await fetch(`https://api.ipstack.com/${response.json().ip}?access_key=${apiKey}`));
 	}
