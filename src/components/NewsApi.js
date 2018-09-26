@@ -23,6 +23,6 @@ export async function fetchWeather(lat, lon) {
 
 export async function fetchLocation() {
 	let apiKey = process.env.REACT_APP_API_KEY_IPSTACK;
-	let response = this._validate(await fetch('https://api.ipify.org?format=json'));
+	let response = _validate(await fetch('https://api.ipify.org?format=json'));
 	return _validate(await fetch(`https://api.ipstack.com/${response.json().ip}?access_key=${apiKey}`));
 }

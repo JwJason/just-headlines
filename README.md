@@ -24,4 +24,7 @@ Needless to say, this setup is **insecure** since it leaves your private API key
 
 ## Todo
 
-* Implement a dark/night-mode theme and a theme switcher.
+- Finish mobile responsiveness.
+- Implement a dark/night-mode theme and a theme switcher.
+
+[[https://github.com/JwJason/just-headlines/blob/master/screenshot-desktop|alt=Desktop Screenshot]]
