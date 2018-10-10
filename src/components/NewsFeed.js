@@ -14,7 +14,7 @@ export default class NewsFeed extends React.Component {
 	render() { 
 		const columns = this.props.articles.map((article, index) => {
 			return (
-				<div className="column is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet" key={'article_'+md5(article.url)} ref={ref => this.cardScroller.cardRefs[index] = ref}>
+				<div className="column is-one-fifth-widescreen is-one-quarter-desktop is-half-tablet" key={'article_'+md5(article.url)} ref={ref => this.cardScroller.cardRefs[index] = ref}>
 					<NewsArticle article={article}/>
 				</div>
 			);

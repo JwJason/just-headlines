@@ -13,7 +13,8 @@ export default class Layout extends React.Component {
 			category: 'general',
 			country : 'us',
 			error: null,
-			isLoaded: false
+			isLoaded: false,
+			menuActive: false
 		};
 	}
 
@@ -52,6 +53,12 @@ export default class Layout extends React.Component {
 		this.loadNews();
 	}
 
+	toggleMenu() {
+		let state = this.state;
+		state.menuActive = !state.menuActive;
+		this.setState(state);
+	}
+
 	render() {
 		if (this.state.isLoaded) {
 			if (this.state.error) {
@@ -61,13 +68,27 @@ export default class Layout extends React.Component {
 			} else {
 				return (
 					<div>
-						<NavBar country={this.state.country} setCountry={(country) => this.setCountry(country)} />
+						<NavBar 
+							country={this.state.country} 
+							setCountry={(country) => this.setCountry(country)} 
+							menuActive={this.state.menuActive}
+							toggleMenu={() => this.toggleMenu()} 
+						/>
 						<div className="columns">
-							<div className="column is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet is-one-half-mobile">
-								<SideMenu category={this.state.category} setCategory={(category) => this.setCategory(category)} />
+							<div className="column is-one-fifth-widescreen is-one-quarter-desktop is-one-quarter-tablet is-one-half-mobile">
+								<SideMenu 
+									category={this.state.category} 
+									country={this.state.country}
+									menuActive={this.state.menuActive}
+									setCategory={(category) => this.setCategory(category)} 
+									setCountry={(country) => this.setCountry(country)}
+								/>
 							</div>
-							<div className="column is-four-fifths-widescreen is-three-quarters-desktop is-two-thirds-tablet is-one-half-mobile">
-								<NewsFeed country={this.state.country} articles={this.state.articles} />
+							<div className="column is-four-fifths-widescreen is-three-quarters-desktop is-three-quarters-tablet is-one-half-mobile">
+								<NewsFeed 
+									country={this.state.country} 
+									articles={this.state.articles} 
+								/>
 							</div>
 						</div>
 					</div>

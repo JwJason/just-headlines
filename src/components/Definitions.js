@@ -10,8 +10,8 @@ export const Categories = new Map([
 
 export const Countries = new Map([
 	['us', 'United States'],
+	['gb', 'Great Britain'],
 	['jp', 'Japan'],
-	['gb', 'Great Britain']
 ]);
 
 export const Styles = new Map([

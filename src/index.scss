@@ -29,6 +29,11 @@ $input-shadow: none;
 @import '~bulma/bulma.sass';
 @import '~bulma-extensions/src/sass/index.sass';
 
+/**
+ * ==============
+ * Visual Effects
+ * ==============
+ */
 // ==== Hover effects ====
 @mixin hover-box-shadow {
 	// Use pseudo-element for the shadow; see (https://blog.cloud66.com/box-shadow-transition-performance/)
@@ -195,4 +200,37 @@ $input-shadow: none;
 
 .weather-city {
 	font-size: 14px;
+}
+
+// === Mobile Dropdown Menu ===
+@include mobile {
+	#mainMenu {
+		display: none;
+	}
+	#mainMenu.is-active {
+		display: block;
+	}
+}
+
+@include desktop {
+	#mainMenu .section-countries  {
+		display: none;
+	}
+}
+
+@include tablet-only {
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+	}
+	.navbar-burger {
+		display: none;
+	}
+	.navbar-menu {
+		display: flex;
+		box-shadow: none;
+	}
+	.navbar-start {
+		display: none;
+	}
 }
