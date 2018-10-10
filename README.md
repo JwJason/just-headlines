@@ -1,6 +1,8 @@
+![Just Headlines desktop screenshot](https://github.com/JwJason/just-headlines/blob/master/screenshot-desktop.png)
+
 ## About
 
-Just Headlines is a simple news & weather app built with React / Bulma. 
+Just Headlines is a simple news & weather app built with React and Bulma. 
 
 ## Installation
 
@@ -26,5 +28,3 @@ Needless to say, this setup is **insecure** since it leaves your private API key
 
 - Finish mobile responsiveness.
 - Implement a dark/night-mode theme and a theme switcher.
-
-[[https://github.com/JwJason/just-headlines/blob/master/screenshot-desktop|alt=Desktop Screenshot]]
