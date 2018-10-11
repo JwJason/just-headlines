@@ -1,3 +1,5 @@
+const cardMargin = 15; // Defines margin between cards (pixel value)
+
 /**
  * Simple carousel functionality for the NewsFeed card display.
  * Could possibly be replaced with Slick slider in the future.
@@ -16,7 +18,7 @@ export default class CardScroller {
 		const destIndex = currentIndex > 0 ? currentIndex - 1 : 0;
 		const card = this.cardRefs[destIndex];
 		const left = card.offsetLeft;
-    	this.containerRef.scrollLeft = left - 15;
+		this.containerRef.scrollLeft = left - cardMargin;
 	}
 
 	/**
@@ -27,7 +29,7 @@ export default class CardScroller {
 		const destIndex = currentIndex < this.cardRefs.length - 2 ? currentIndex + 1 : this.cardRefs.length - 1;
 		const card = this.cardRefs[destIndex];
 		const left = card.offsetLeft;
-		this.containerRef.scrollLeft = left - 15;
+		this.containerRef.scrollLeft = left - cardMargin;
 	}
 
 	/**
@@ -36,7 +38,7 @@ export default class CardScroller {
 	_leftmostCardIndex() {
 		const tolerance = 20; // Card can be up to %tolerance% pixels outside of the view and still be considered "visible"
 		const container = this.containerRef;
-		for (var i = 0; i < this.cardRefs.length; i++) {
+		for (let i = 0; i < this.cardRefs.length; i++) {
 			let card = this.cardRefs[i];
 			if (card.offsetLeft + tolerance >= container.scrollLeft) {
 				return i;
