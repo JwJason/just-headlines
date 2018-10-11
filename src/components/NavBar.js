@@ -8,7 +8,7 @@ let classNames = require('classnames');
 export default class NavBar extends React.Component {
     render() {
       return (
-        <nav className="navbar is-transparent">
+        <nav className="navbar">
           <div className="navbar-brand">
             <a className="navbar-item">
               <img src="just-headlines.png" alt="Just Headlines" width="200px"/>

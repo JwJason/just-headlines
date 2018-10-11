@@ -133,13 +133,18 @@ $input-shadow: none;
 	margin-top: 0px;
 }
 
-// == Navbar ==
+// === Navbar ===
 .navbar-start .navbar-item {
 	padding-left: 2em;
 }
 
 .navbar-link svg {
 	padding-right: 5px;
+}
+
+// === Content Container ===
+.main-content {
+	margin-top: 0rem;
 }
 
 /**
@@ -219,6 +224,7 @@ $input-shadow: none;
 }
 
 @include tablet-only {
+	// === Navbar ===
 	.navbar {
 		display: flex;
 		justify-content: space-between;
@@ -232,5 +238,27 @@ $input-shadow: none;
 	}
 	.navbar-start {
 		display: none;
+	}
+	// === Weather ===
+	.weather-icon {
+		height: 30px;
+	}
+	.weather-icon svg {
+		width: 30px;
+		height: 30px;
+	}
+	.weather-info {
+		margin: 0px 8px;
+		display: flex;
+	}
+	.weather-temp {
+		margin-right: 6px;
+	}
+	.weather-description {
+		display: none;
+	}
+	.weather-city::before {
+		content: ' | ';
+		margin-right: 6px;
 	}
 }

@@ -74,7 +74,7 @@ export default class Layout extends React.Component {
 							menuActive={this.state.menuActive}
 							toggleMenu={() => this.toggleMenu()} 
 						/>
-						<div className="columns">
+						<div className="main-content columns">
 							<div className="column is-one-fifth-widescreen is-one-quarter-desktop is-one-quarter-tablet is-one-half-mobile">
 								<SideMenu 
 									category={this.state.category} 
