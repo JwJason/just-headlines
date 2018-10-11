@@ -1,4 +1,6 @@
 ![Just Headlines desktop screenshot](https://github.com/JwJason/just-headlines/blob/master/screenshot-desktop.png)
+![Just Headlines tablet screenshot](https://github.com/JwJason/just-headlines/blob/master/screenshot-tablet.png)
+![Just Headlines mobile screenshot](https://github.com/JwJason/just-headlines/blob/master/screenshot-mobile.png)
 
 ## About
 
