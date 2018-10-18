@@ -4,13 +4,14 @@
 
 ## About
 
-Just Headlines is a simple news & weather app built with React and Bulma. 
+Just Headlines is a simple news & weather app built with React and Bulma. Lumen backend leverages a handful of third-party APIs.
 
 ## Installation
 
-Project dependencies can be installed the usual way with npm or yarn.
+- Frontend: Project dependencies can be installed the usual way with npm or yarn. Set up .env variables as needed (see next section).
+- Backend ('api' sub-folder): Project dependencies can be installed with composer. Run database migrations with composer. Set up .env variables as needed (see next section).
 
-## API Keys
+## Environment Variables and API Keys
 
 This app makes use of several different APIs:
 
@@ -18,13 +19,17 @@ This app makes use of several different APIs:
 - [OpenWeatherMap](https://openweathermap.org/)
 - [ipstack](https://ipstack.com/)
 
-You will need valid API keys for each of these services. API keys should be defined with the following .env file variables:
+You will need valid API keys for each of these services. API keys should be defined with the following Lumen app/.env variables:
 
-- REACT_APP_API_KEY_NEWS
-- REACT_APP_API_KEY_WEATHER
-- REACT_APP_API_KEY_IPSTACK
+- APP_API_KEY_NEWS
+- APP_API_KEY_WEATHER
+- APP_API_KEY_IPSTACK
 
-Needless to say, this setup is **insecure** since it leaves your private API keys exposed client-side. This is fine for development purposes, but for production deployment the API calls must be moved into a backend script.
+Finally, you must tell the frontend where the backend base URL lives. Set the following Webpack .env variable:
+
+- REACT_APP_API_BASE_URL
+
+An example of this variable might be: `http://localhost:8000/api`. 
 
 ## Todo
 
