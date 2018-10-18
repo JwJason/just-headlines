@@ -21,4 +21,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# lumen
+api/public/storage
+api/public/hot
+api/storage/*.key
 api/composer.phar
+Homestead.yaml
+Homestead.json
