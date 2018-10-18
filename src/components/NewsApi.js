@@ -7,22 +7,21 @@ function _validate(response) {
 	}
 }
 
-export async function fetchNews(country, category) {
-	let apiKey = process.env.REACT_APP_API_KEY_NEWS;
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
+console.log(baseUrl);
 
+export async function fetchNews(country, category) {
+	const baseUrl = process.env.REACT_APP_API_BASE_URL;
+console.log(baseUrl);
 	if (!country) country = '';
-	if (!category) category = '';
-	
-	return _validate(await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`));
+	return _validate(await fetch(`${baseUrl}/articles/country/${country}${category ? '/category/'+category : ''}`));
 }
 
 export async function fetchWeather(lat, lon) {
-	let apiKey = process.env.REACT_APP_API_KEY_WEATHER;
-	return _validate(await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${apiKey}&units=imperial`));
+	return _validate(await fetch(`${baseUrl}/weather/?lat=${lat}&lon=${lon}`));
 }
 
 export async function fetchLocation() {
-	let apiKey = process.env.REACT_APP_API_KEY_IPSTACK;
 	let response = _validate(await fetch('https://api.ipify.org?format=json'));
-	return _validate(await fetch(`https://api.ipstack.com/${response.json().ip}?access_key=${apiKey}`));
+	return _validate(await fetch(`${baseUrl}/geolocation`));
 }
