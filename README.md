@@ -9,7 +9,7 @@ Just Headlines is a simple news & weather app built with React and Bulma. The Lu
 ## Installation
 
 - Frontend: Project dependencies can be installed the usual way with npm or yarn. Set up .env variables as needed (see next section).
-- Backend ('api' sub-folder): Project dependencies can be installed with composer. Run database migrations with composer. Set up .env variables as needed (see next section).
+- Backend ('api' sub-folder): Project dependencies can be installed with composer. Run database migrations with artisan. Set up .env variables as needed (see next section).
 
 ## Environment Variables and API Keys
 
