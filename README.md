@@ -4,7 +4,7 @@
 
 ## About
 
-Just Headlines is a simple news & weather app built with React and Bulma. Lumen backend leverages a handful of third-party APIs.
+Just Headlines is a simple news & weather app built with React and Bulma. The Lumen backend leverages a handful of third-party APIs.
 
 ## Installation
 
